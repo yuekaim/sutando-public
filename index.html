@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sean Bradley">
+    <title>Sutando</title>
+    <!-- <link rel="stylesheet" href="./snippets/timeline/assets/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="./css/glitch.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="./js/jquery-ui.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <span id="scrollProgress"></span>
+    <div class="bgtext">
+      <img src="./assets/bgtext.png" alt="">
+    </div>
+    <main>
+      <div id="menu-wrapper">
+        <div id="hamburger-menu"><span></span><span></span><span></span></div>
+        <!-- hamburger-menu -->
+      </div>
+
+
+      <section>
+        <div class="title">
+          <img src="./assets/logo.png" alt="">
+        </div>
+      </section>
+      <section></section>
+      <section id="about">
+        <div class="textblock" id="aboutblock">
+
+          <!-- <h1>BACKGROUND STORY</h1> -->
+          <p>According to the remaining historical documents, in the past 540 million years, earth has experienced 5 major extinctions. Anno Mundi, the domination of giant creatures; Holocene, the risen of mankind; Automata, the awaken of mechanical; Blank Era, no data remain; Wasteland, the mutation of boundlessness.
+</p>
+<p>During the last five extinctions, the carbon cycle of earth had been destroyed and the surface can no longer suitable for any species.
+</p>
+<p>On the eve of the sixth mass extinction, survivors had to put aside the barriers between species, and jointly decided to transfer their consciousness to the avatar with the same appearance. Only the collective integration of a new race may live. Choice of reproduce the glory of the past or develop a new civilization is on your hand.
+</p>
+          <p id="demo"></p>
+        </div>
+      </section>
+      <section></section>
+      <section></section>
+      <section id="intro">
+        <div class="textblock" id="aboutblock">
+          <h1>INTRODUCTION</h1>
+          <p>SU-TANDO is the first project that bring Sofubi into NFT world and we placed identity and independence seriously. The first 10,000 3D NFT avatars of level Genesius was created by a talented Japan artist and shall be published in Q1, 2022. To make sure all avatars are unique, we created 3 different species named Happy, Vampy and Capy, over 150 traits and 10,000 automatically generated unknown identities, written in secret language, hidden in each NFT’s background. It was a message of their identity before the cataclysm and the only path to find their people. </p>
+          <p id="demo"></p>
+        </div>
+      </section>
+      <section id="trailer">
+        <video src="assets/trailer.mp4" controls poster="">
+
+        </video>
+      </section>
+      <section></section>
+      <section class="textblock">
+        <p>SU-TANDO will ONLY be sold to our whitelist members, including long-term collectors of our Japanese artist, early supporters of the project and loyal companions. To prevent Paper Hand from becoming a stumbling block on our way forward, SU-TANDO will buy back every avatar that is listed below our selling price and remove the sellers’ address from our community permanently. All repurchased avatars will conduct air dropped to our most valuable community members in the future.
+</p>
+      </section>
+      <section id="toys">
+        <div class="box1">
+          <img src="assets/1.jpg" alt="">
+          <img src="assets/2.jpg" alt="">
+          <img src="assets/3.jpg" alt="">
+          <img src="assets/4.jpg" alt="">
+          <img src="assets/5.jpg" alt="">
+          <img src="assets/6.jpg" alt="">
+          <img src="assets/7.jpg" alt="">
+          <img src="assets/8.jpg" alt="">
+          <img src="assets/9.jpg" alt="">
+        </div>
+        <div class="box1">
+          <img src="assets/4.jpg" alt="">
+          <img src="assets/5.jpg" alt="">
+          <img src="assets/6.jpg" alt="">
+          <img src="assets/7.jpg" alt="">
+          <img src="assets/8.jpg" alt="">
+          <img src="assets/9.jpg" alt="">
+          <img src="assets/1.jpg" alt="">
+          <img src="assets/2.jpg" alt="">
+          <img src="assets/3.jpg" alt="">
+        </div>
+        <div class="box1">
+          <img src="assets/7.jpg" alt="">
+          <img src="assets/8.jpg" alt="">
+          <img src="assets/9.jpg" alt="">
+          <img src="assets/1.jpg" alt="">
+          <img src="assets/2.jpg" alt="">
+          <img src="assets/3.jpg" alt="">
+          <img src="assets/4.jpg" alt="">
+          <img src="assets/5.jpg" alt="">
+          <img src="assets/6.jpg" alt="">
+        </div>
+      </section>
+
+      <!-- <section class="cd-timeline js-cd-timeline">
+      <script type="text/javascript">
+        $('.cd-timeline').first().load("./snippets/timeline/timeline.html");
+      </script>
+      </section> -->
+
+    </main>
+    <script type="module">
+        import * as THREE from './js/threejs/three.module.js'
+        // import { STLLoader } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/STLLoader'
+        // import { OBJLoader } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/OBJLoader.js';
+        import { GLTFLoader } from './js/threejs/GLTFLoader.js';
+        import { setupModel } from './js/threejs/setupModel.js';
+        import { DRACOLoader } from './js/threejs/DRACOLoader.js';
+        // import Stats from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/libs/stats.module.js'
+
+        const scene = new THREE.Scene()
+
+        // const gridHelper = new THREE.GridHelper(10, 10, 0xaec6cf, 0xaec6cf)
+        // scene.add(gridHelper)
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000)
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        document.body.appendChild(renderer.domElement)
+        // scene.background = new THREE.Color( 0xff000000 );
+
+// gltf loader
+
+        // fog
+        const near = -0.3;
+        const far = 1.8;
+        const color = 'red';
+        scene.fog = new THREE.Fog(color, near, far);
+        scene.background = new THREE.Color(color);
+
+
+        // const loader = new GLTFLoader();
+
+        const loader = new GLTFLoader();
+        const dracoLoader = new DRACOLoader();
+        dracoLoader.setDecoderPath( './js/draco/' );
+        dracoLoader.setDecoderConfig({type: 'js'});
+        loader.setDRACOLoader( dracoLoader );
+
+        loader.load( './assets/hapy.glb', function(gltf){
+          // gltf.scene.scale.set(1,1,1)
+          gltf.scene.position.set(0,-0.25,0.2);
+          gltf.scene.scale.set(0.15,0.15,0.15);
+          scene.add(gltf.scene);
+          // render();
+        });
+
+
+        // loader.load( './assets/hapy2.glb', function ( gltf ) {
+        // // loader.load( '', function ( gltf ) {
+        //   // gltf.scene.scale.set(2, 2, 2);
+        //   gltf.scene.scale.set(0.05,0.05,0.05);
+        //   scene.add( gltf.scene );
+        //
+        //
+        // }, undefined, function ( error ) {
+        // 	console.error( error );
+        // } );
+
+
+// console.log(scene.children)
+
+        //
+
+
+// keep cube for reference of position
+        const geometry = new THREE.BoxGeometry()
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            wireframe: false
+        })
+
+        const cube = new THREE.Mesh(geometry, material)
+        cube.position.set(0, 0.8, 3)
+        cube.scale.set(0,0,0)
+        scene.add(cube)
+
+        // Lights
+
+				scene.add( new THREE.HemisphereLight( 0x443333, 0x111122 ) );
+
+				addShadowedLight( 1, 1, 1, 0xffffff, 0);
+				addShadowedLight( 1.5, 1, - 1, 0xffffff, 2.5 );
+
+        function addShadowedLight( x, y, z, color, intensity ) {
+
+				const directionalLight = new THREE.DirectionalLight( color, intensity );
+				directionalLight.position.set( x, y, z );
+				scene.add( directionalLight );
+
+				directionalLight.castShadow = true;
+
+				const d = 1;
+				directionalLight.shadow.camera.left = - d;
+				directionalLight.shadow.camera.right = d;
+				directionalLight.shadow.camera.top = d;
+				directionalLight.shadow.camera.bottom = - d;
+
+				directionalLight.shadow.camera.near = 1;
+				directionalLight.shadow.camera.far = 4;
+
+				directionalLight.shadow.bias = - 0.002;
+
+			}
+      //
+      window.addEventListener("mousemove", onmousemove, false);
+
+      var mouse = new THREE.Vector2();
+      var mousereact = true;
+
+      function onmousemove(event) {
+        if (mousereact) {
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+          scene.children[4].rotation.y = mouse.x * 0.1;
+          // scene.children[4].rotation.x = mouse.y * 0.1;
+        }
+      }
+
+
+        window.addEventListener('resize', onWindowResize, false)
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight
+            camera.updateProjectionMatrix()
+            renderer.setSize(window.innerWidth, window.innerHeight)
+            render()
+        }
+
+        /* Liner Interpolation
+         * lerp(min, max, ratio)
+         * eg,
+         * lerp(20, 60, .5)) = 40
+         * lerp(-20, 60, .5)) = 20
+         * lerp(20, 60, .75)) = 50
+         * lerp(-20, -10, .1)) = -.19
+         */
+        function lerp(x, y, a) {
+            return (1 - a) * x + a * y
+        }
+
+        // Used to fit the lerps to start and end at specific scrolling percentages
+        function scalePercent(start, end) {
+            return (scrollPercent - start) / (end - start)
+        }
+
+        const animationScripts = []
+
+        //add an animation that flashes the cube through 100 percent of scroll
+        // animationScripts.push({
+        //     start: 0,
+        //     end: 101,
+        //     func: () => {
+        //         let r = scene.children[3].color.r
+        //         r -= 0.01
+        //         if (r <= 0) {
+        //             r = 1.0
+        //         }
+        //         scene.children[3].color.r = r
+        //     }
+        // })
+
+        //add an animation that moves the cube through first 40 percent of scroll
+
+        animationScripts.push({
+            start: 0,
+            end: 10,
+            func: () => {
+                // camera.position.z = lerp(2, 10, scalePercent(0, 40))
+                camera.lookAt(cube.position)
+                camera.position.set(0, 0.3, -0.4)
+                camera.position.y = lerp(0.2, 0, scalePercent(0, 10))
+                camera.position.z = lerp(-0.3, -0.5, scalePercent(0, 10))
+                // camera.position.z = lerp(-0.3, -0.9, scalePercent(0, 30))
+                // model.position.z = lerp(2, 10, scalePercent(0, 10))
+                //console.log(cube.position.z)
+                mousereact = true;
+
+            }
+        })
+
+        animationScripts.push({
+            start: 10,
+            end: 15,
+            func: () => {
+              mousereact = true;
+              // scene.background.set('red');
+            }
+        })
+
+
+        animationScripts.push({
+            start: 15,
+            end: 30,
+            func: () => {
+
+              mousereact = true;
+                // camera.position.z = lerp(2, 10, scalePercent(0, 40))
+                camera.lookAt(cube.position)
+                // camera.position.set(0, 0.3, -0.3)
+                camera.position.z = lerp(-0.5, -1, scalePercent(15, 30))
+                camera.position.x = lerp(0, 0.6, scalePercent(15, 30))
+                camera.position.y = lerp(0, -0.2, scalePercent(15, 30))
+                // scene.children[4].position.y = lerp(0.8, 1.2, scalePercent(15, 30))
+                //console.log(cube.position.z)
+            }
+        })
+
+        //add an animation that rotates the cube between 40-60 percent of scroll
+
+        //add an animation that moves the camera between 60-80 percent of scroll
+        animationScripts.push({
+            start: 30,
+            end: 80,
+            func: () => {
+              scene.children[4].rotation.y += 0.01
+              mousereact = false;
+                // camera.position.x = lerp(0, 5, scalePercent(60, 80))
+                // camera.position.y = lerp(1, 5, scalePercent(60, 80))
+                // camera.lookAt(cube.position)
+                //console.log(camera.position.x + " " + camera.position.y)
+            }
+        })
+
+        //add an animation that auto rotates the cube from 80 percent of scroll
+        animationScripts.push({
+            start: 80,
+            end: 101,
+            func: () => {
+                //auto rotate
+                scene.children[4].rotation.y += 0.01
+            }
+        })
+
+        function playScrollAnimations() {
+            animationScripts.forEach((a) => {
+                if (scrollPercent >= a.start && scrollPercent < a.end) {
+                    a.func()
+                }
+            })
+        }
+
+        let scrollPercent = 0
+
+        document.body.onscroll = () => {
+            //calculate the current scroll progress as a percentage
+            scrollPercent =
+                ((document.documentElement.scrollTop || document.body.scrollTop) /
+                    ((document.documentElement.scrollHeight || document.body.scrollHeight) -
+                        document.documentElement.clientHeight)) *
+                100
+            // document.getElementById('scrollProgress').innerText =
+            //     'Scroll Progress : ' + scrollPercent.toFixed(2)
+        }
+
+        // const stats = Stats()
+        // document.body.appendChild(stats.dom)
+
+        function animate() {
+            requestAnimationFrame(animate)
+
+            playScrollAnimations()
+
+            render()
+
+            // stats.update()
+        }
+
+        function render() {
+            renderer.render(scene, camera)
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        animate()
+
+    </script>
+    <script src="./js/main.js" charset="utf-8"></script>
+    <script src="./snippets/timeline/assets/js/main.js" charset="utf-8"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCXaMQmg6FOgW7l0uPXeSFMsTGi9n0ot_U",
+        authDomain: "sutando-55c70.firebaseapp.com",
+        projectId: "sutando-55c70",
+        storageBucket: "sutando-55c70.appspot.com",
+        messagingSenderId: "558388634051",
+        appId: "1:558388634051:web:b104db2ea8a32a5e01dd76",
+        measurementId: "G-YYVJDD91QV"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+
+</body>
+
+</html>
