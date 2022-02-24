@@ -9,8 +9,15 @@
     <!-- <link rel="stylesheet" href="./snippets/timeline/assets/css/style.css"> -->
     <!-- <link rel="stylesheet" href="./css/glitch.css"> -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/laser.css">
+    <link rel="stylesheet" href="https://unpkg.com/splitting@0.11.3/splitting.css">
+    <script src="https://unpkg.com/splitting/dist/splitting.js" charset="utf-8"></script>
     <script src="./js/jquery-3.6.0.min.js" charset="utf-8"></script>
     <script src="./js/jquery-ui.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="./js/text-scramble.js" charset="utf-8"></script>
 
 </head>
 
@@ -24,8 +31,6 @@
         <div id="hamburger-menu"><span></span><span></span><span></span></div>
         <!-- hamburger-menu -->
       </div>
-
-
       <section>
         <div class="title">
           <img src="./assets/logo.png" alt="">
@@ -49,7 +54,11 @@
       <section></section>
       <section id="intro">
         <div class="textblock" id="aboutblock">
-          <h1>INTRODUCTION</h1>
+          <h1 data-splitting class="heading textanim">INTRODUCTION</h1><br>
+          <!-- <div data-splitting class="title">INTRODUCTION</div> -->
+          <!-- <div class="container">
+            <div class="text"></div>
+          </div> -->
           <p>SU-TANDO is the first project that bring Sofubi into NFT world and we placed identity and independence seriously. The first 10,000 3D NFT avatars of level Genesius was created by a talented Japan artist and shall be published in Q1, 2022. To make sure all avatars are unique, we created 3 different species named Happy, Vampy and Capy, over 150 traits and 10,000 automatically generated unknown identities, written in secret language, hidden in each NFT’s background. It was a message of their identity before the cataclysm and the only path to find their people. </p>
           <p id="demo"></p>
         </div>
@@ -58,6 +67,7 @@
         <video src="assets/trailer.mp4" controls poster="">
 
         </video>
+
       </section>
       <section></section>
       <section class="textblock">
@@ -65,6 +75,9 @@
 </p>
       </section>
       <section id="toys">
+        <div class="bgsecrest">
+          SU-TANDO will ONLY be sold to our whitelist members, including long-term collectors of our Japanese artist, early supporters of the project and loyal companions. To prevent Paper Hand from becoming a stumbling block on our way forward, SU-TANDO will buy back every avatar that is listed below our selling price and remove the sellers’ address from our community permanently. All repurchased avatars will conduct air dropped to our most valuable community members in the future.
+        </div>
         <div class="box1">
           <img src="assets/1.jpg" alt="">
           <img src="assets/2.jpg" alt="">
@@ -217,13 +230,19 @@
       var mouse = new THREE.Vector2();
       var mousereact = true;
 
+      console.log(scene.children);
+
       function onmousemove(event) {
+        event.preventDefault();
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         if (mousereact) {
-          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
           scene.children[4].rotation.y = mouse.x * 0.1;
           // scene.children[4].rotation.x = mouse.y * 0.1;
         }
+        // directionalLight.position.x = mouse.x * 0.1;
+
+
       }
 
 

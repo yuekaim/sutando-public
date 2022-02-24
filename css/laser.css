@@ -1,0 +1,47 @@
+@font-face {
+  font-family: secret;
+  src: url('sutandotext.otf');
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  font-weight: 100;
+  font-size: 28px;
+  color: #fafafa;
+}
+
+.textanim{
+  font-family: sans-serif;
+  font-size: 3em;
+}
+
+.splitting .char {
+  /* animation: slide-in 5s cubic-bezier(.5, 0, .5, 1) both; */
+  animation: slide-in 5s infinite;
+  animation-delay: calc(60ms * var(--char-index));
+  /* display: inline-block; */
+  vertical-align: text-top;
+  /* animation-iteration-count: infinite; */
+
+}
+
+@keyframes slide-in {
+  0% {
+/*     transform:scale(0.5); */
+/*     opacity: 0; */
+    font-family: 'secret';
+    /* font-size: 0.5em; */
+  }
+  50%{
+    font-family: 'secret';
+  }
+  50%{
+    font-family: sans-serif;
+  }
+}

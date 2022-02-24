@@ -47,3 +47,7 @@ $(function() {
     $(".menu-list .accordion-toggle").not(jQuery(this)).removeClass("active-tab").find(".menu-link").removeClass("active");
   });
 }); // jQuery load
+
+Splitting();
+
+// Hover over the title to pause the CSS animation
