@@ -50,4 +50,81 @@ $(function() {
 
 Splitting();
 
-// Hover over the title to pause the CSS animation
+
+//jquery slide in picture
+$(window).on('resize scroll', function() {
+    if ($('#about').isInViewport()) {
+        $('.drawing').first().css('right', '50px');
+    } else {
+        $('.drawing').first().css('right', '-2000px');
+    }
+    // jquery title animation
+    if ($(document).scrollTop() > 200){
+      $(".heading").first().addClass("textanim");
+    }
+
+    if ($('.rules').first().isInViewport()) {
+        $('.rules').addClass("text-appear");
+    } else {
+
+    }
+        // $('.drawing').first().css('right', '-2000px');
+
+});
+
+
+
+
+
+// cursor
+$(document).on('mousemove', function(e){
+    $('#cursor').css({
+       left:  e.clientX,
+       top:   e.clientY
+    });
+    $('#cursor2').css({
+       left:  e.clientX,
+       top:   e.clientY
+    });
+});
+
+
+//glitch
+
+
+
+
+
+// video playpause
+function playPauseVideo() {
+    let videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
+        // We can only control playback without insteraction if video is mute
+        video.muted = true;
+        // Play is a promise so we need to check we have it
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then((_) => {
+                let observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (
+                                entry.intersectionRatio !== 1 &&
+                                !video.paused
+                            ) {
+                                video.pause();
+                            } else if (video.paused) {
+                                video.play();
+                            }
+                        });
+                    },
+                    { threshold: 0.2 }
+                );
+                observer.observe(video);
+            });
+        }
+    });
+}
+
+// And you would kick this off where appropriate with:
+playPauseVideo();
