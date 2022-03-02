@@ -132,18 +132,39 @@ playPauseVideo();
 
 // auto scroll toy
 
-// $(".box1").first().animate({
-//   scrollTop: $(this).prop("scrollHeight")
-// }, 10000);
-//
-// // $(".box1").first().pause();
-// $(".box1").first().hover(function() {
-//   $(".box1").first().resume();
-//   // $(".box1").first().css("-webkit-animation-play-state", "running");
-// }, function() {
-//   $(".box1").first().pause();
-//   // $(".box1").first().css("-webkit-animation-play-state", "paused");
-// });
+
+// $(".box1").first().pause();
+$(".box1").first().hover(function() {
+  $(".box1").first().animate({
+    scrollTop: $(this).prop("scrollHeight")
+  }, 20000);
+  // $(".box1").first().css("-webkit-animation-play-state", "running");
+}, function() {
+  $(".box1").first().pause();
+  // $(".box1").first().css("-webkit-animation-play-state", "paused");
+});
+
+$(".box2").first().hover(function() {
+  $(".box2").first().animate({
+    scrollTop: $(this).prop("scrollHeight")
+  }, 20000);
+  // $(".box1").first().css("-webkit-animation-play-state", "running");
+}, function() {
+  $(".box2").first().pause();
+  // $(".box1").first().css("-webkit-animation-play-state", "paused");
+});
+
+$(".box3").first().hover(function() {
+  $(".box3").first().animate({
+    scrollTop: $(this).prop("scrollHeight")
+  }, 20000);
+  // $(".box1").first().css("-webkit-animation-play-state", "running");
+}, function() {
+  $(".box3").first().pause();
+  // $(".box1").first().css("-webkit-animation-play-state", "paused");
+});
+
+
 
 
 // roadmap
