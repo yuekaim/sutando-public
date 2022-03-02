@@ -128,3 +128,50 @@ function playPauseVideo() {
 
 // And you would kick this off where appropriate with:
 playPauseVideo();
+
+
+// auto scroll toy
+
+// $(".box1").first().animate({
+//   scrollTop: $(this).prop("scrollHeight")
+// }, 10000);
+//
+// // $(".box1").first().pause();
+// $(".box1").first().hover(function() {
+//   $(".box1").first().resume();
+//   // $(".box1").first().css("-webkit-animation-play-state", "running");
+// }, function() {
+//   $(".box1").first().pause();
+//   // $(".box1").first().css("-webkit-animation-play-state", "paused");
+// });
+
+
+// roadmap
+function activateCurrent(e){
+  $('.content').slideUp(200);
+  e.slideDown(200);
+  $('.roadmaptitle').removeClass( "roadmaptitleactive" )
+}
+
+activateCurrent($(".content.story"));
+$(".roadmaptitle.one").addClass('roadmaptitleactive');
+
+$(".roadmaptitle.one").click(function() {
+  activateCurrent($(".content.story"));
+  $(".roadmaptitle.one").addClass('roadmaptitleactive');
+});
+
+$(".roadmaptitle.two").click(function() {
+  activateCurrent($(".content.secret"));
+  $(".roadmaptitle.two").addClass('roadmaptitleactive');
+});
+
+$(".roadmaptitle.three").click(function() {
+  activateCurrent($(".content.underground"));
+  $(".roadmaptitle.three").addClass('roadmaptitleactive');
+});
+
+$(".roadmaptitle.four").click(function() {
+  activateCurrent($(".content.ecommerce"));
+  $(".roadmaptitle.four").addClass('roadmaptitleactive');
+});

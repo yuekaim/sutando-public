@@ -1,0 +1,126 @@
+html, body, * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+}
+
+.clearfix {
+  clear: both;
+  display: inline-block;
+  width: 100%;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #000;
+}
+
+table#payout td {
+  font: 100 1em/1em Arial;
+  width: 48.57142857142857px;
+}
+
+table#stats td {
+  font: 100 1em/1em Arial;
+  padding: 5px;
+  width: 50%
+}
+
+#reel-wrap {
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  width: 900px;
+}
+
+.reel-col {
+  border: 10px solid #ccc;
+  float: left;
+  height: 500px;
+  margin-right: -10px;
+  overflow: scroll;
+  position: relative;
+  width: 300px;
+}
+
+.reel-container {
+  position: absolute;
+  top: -2850px;
+}
+
+.slot-frame {
+  font-size: 150px;
+  height: 500px;
+  line-height: 150px;
+  text-align: center;
+  width: 300px;
+}
+
+.slot-frame img{
+  max-height: 100%;
+  /* transform: translate(-50%); */
+  /* max-width: 100%; */
+}
+
+.dia, .hea {
+  color: #c00;
+}
+
+.sta {
+  color: #265cff;
+}
+
+.smi {
+  color: #008c23;
+}
+
+.slot-frame.dia {
+  position: relative;
+  left: -8px;
+}
+
+.slot-frame.adj {
+  font-size: 145px;
+  left: -25px;
+  position: relative;
+  top: -5px;
+}
+
+.slot-frame.sm {
+  font-size: 100px;
+}
+
+#score-float {
+  color: #00d936;
+  display: none;
+  font: 900 2.6em/1em Arial;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#spin {
+  font: 900 1.2em/1.2em Arial;
+  height: 50px;
+  width: 340px;
+}

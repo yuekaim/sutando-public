@@ -186,6 +186,7 @@ section {
 
 
 .title{
+  pointer-events: none;
   position: fixed;
   filter: invert();
   animation-name: title;
@@ -266,11 +267,12 @@ section {
   width: 100vw;
   background: white;
   z-index: 1000;
+  padding-top: 5em;
 }
 
 .toycontainer{
   width: 100vw;
-  /* position: absolute; */
+  position: absolute;
   /* z-index: 1000; */
   pointer-events: all;
 
@@ -292,15 +294,17 @@ section {
   display: flex;
 }
 
-.box1{
+.box{
+  margin:10px;
+
   /* background-image: url("../assets/1.jpg"); */
   /* border: 1px solid white; */
   width: 300px;
   height: 500px;
 
 
-  box-shadow: inset 50px 50px 100px #ffffff55,
-  inset -50px -50px 100px #00000055;
+  box-shadow: inset 20px 20px 50px #ffffff55,
+  inset -20px -20px 50px #00000055;
 
   background-color: #ffffff33;
   backdrop-filter: blur(5px);
@@ -321,11 +325,16 @@ section {
   background-size: cover; */
 }
 
-.box1::-webkit-scrollbar {
+.box:hover{
+  box-shadow:  inset 10px 10px 50px #ffffff55,
+   inset -10px -10px 50px #00000055;
+}
+
+.box::-webkit-scrollbar {
   display: none;
 }
 
-.box1 img{
+.box img{
   height: 100%;
   transform: scale(2);
   margin: 3em 0 3em 0;
@@ -376,9 +385,20 @@ section {
 
 .rules p{
  /* text-align: center; */
- padding: 2em;
+ /* padding: 5em; */
  color: red;
      text-shadow: 0 0 10px red;
+}
+
+.rules div{
+  margin: 5em;
+  padding: 1em;
+  /* border: 1px solid red; */
+  clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 5% 100%, 0 80%);
+  -webkit-clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 5% 100%, 0 80%);
+  background-color: #000000bb;
+  backdrop-filter: blur(20px);
+  /* background: red; */
 }
 
 .rules{
@@ -387,10 +407,11 @@ section {
   padding: 0em;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 84%);
-
 }
 
 .roadmap{
+  display: flex;
+
   width: 100vw;
   left: 0;
   padding: 0em;
@@ -400,15 +421,41 @@ section {
 
 .roadmap .titlewrapper{
   display: flex;
+}
 
+.titlewrapper{
+  flex-direction: column;
 }
 
 .roadmaptitle{
-  background-color: white;
-  border: 1px solid black;
-  width: 20vw;
-  font: 1em;
+  width: 25vw;
+  margin-left: 2em;
+  text-align: left;
   /* height: 100px; */
+}
+
+.roadmaptitle span{
+  font-size: 1.5em;
+  font-family: "Buffalo-bold";
+  white-space: nowrap;
+  /* margin-right: 1em; */
+}
+
+.roadmaptitle span:hover{
+  text-decoration: underline;
+}
+
+.roadmaptitleactive{
+  text-decoration: underline;
+  color: red;
+}
+
+.roadmapcontent .content{
+  font-size: 0.8em;
+  font-family: "VT323";
+  margin: 0 2em 0 2em;
+  padding: 1em;
+  text-align: left;
 }
 
 /* nav */
