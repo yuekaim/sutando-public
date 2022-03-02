@@ -1,11 +1,11 @@
 @font-face {
   font-family: secret;
-  src: url('css/sutandotext.otf');
+  src: url('sutandotext.otf');
 }
 
 @font-face {
   font-family: Buffalo-bold;
-  src: url('css/Buffalo-Bold.ttf');
+  src: url('Buffalo-Bold.ttf');
 }
 
 .container {
